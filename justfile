@@ -88,9 +88,9 @@ dbt-generate-model-yaml model_name generated_folder=generated_default:
 
 alias gmy := dbt-generate-model-yaml
 
-# Generate YAML config for any unconfigured SQL models.
-# Optionally accepts a parameter for folder to search in.
 default_folder := 'models'
+
+# Generate YAML config for any unconfigured SQL models.
 dbt-generate-missing-yaml folder=default_folder:
     @for sql_file in $(find {{folder}} -type f -name '*.sql'); do \
         yml_file=${sql_file%.sql}.yml; \
